@@ -139,6 +139,7 @@ python -I scripts/fetch_official_rules.py
 - 每条问题在「依据」列填编号 + 一句话要点，例如：`[P-06] 禁止导流到其他平台的网址链接、二维码、水印`。
 - 一个行为命中多条时全部列出，取最严的一条定级。
 - 编号与条文对照见 `references/evidence-index.md`；平台原文见 `references/official-community-rules.md`。
+- 用户追问出处时，用 `evidence-index.md` 的「核验」列给出官方站点与检索词；P 类可直接指向 `official-community-rules.md` 的对应章节。
 - 找不到条款支撑的判断，标注「无直接条款，按同类惯例」，并降级。
 
 表格为空时写「无」，不要省略该节——用户需要看到「这一类查过了」。
