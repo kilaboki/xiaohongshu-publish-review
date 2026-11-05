@@ -65,14 +65,42 @@ python -I scripts/fetch_official_rules.py
 
 ## 安装
 
+放到你的 Agent 会读取的 skills 目录。常见位置：
+
+| Agent | skills 目录 |
+|---|---|
+| ZCode | `~/.agents/skills/` 或 `~/.zcode/skills/` |
+| Claude Code | `~/.claude/skills/` |
+| 其他 | 见该 Agent 文档；也可以直接把 `SKILL.md` 当系统提示词用 |
+
+macOS / Linux / Git Bash：
+
 ```bash
+mkdir -p ~/.agents/skills
 git clone https://github.com/kilaboki/xiaohongshu-publish-review.git \
   ~/.agents/skills/xiaohongshu-publish-review
 ```
 
-适用于 Claude Code / ZCode 等支持 `~/.agents/skills/` 目录的 Agent。其他 Agent 也可以直接把 `SKILL.md` 当作系统提示词使用。
+Windows PowerShell：
 
-依赖：Python 3.8+（脚本只用标准库）。
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.agents\skills" | Out-Null
+git clone https://github.com/kilaboki/xiaohongshu-publish-review.git "$env:USERPROFILE\.agents\skills\xiaohongshu-publish-review"
+```
+
+`git clone` 一般会自动创建目标目录。如果报 `could not create work tree dir`，先手动建父目录再重试：
+
+```bash
+mkdir -p ~/.agents/skills
+```
+
+**验证安装**（输出 `FIRST_RUN` 或 `UNCHANGED` 即为成功）：
+
+```bash
+python -I ~/.agents/skills/xiaohongshu-publish-review/scripts/fetch_official_rules.py
+```
+
+依赖：Python 3.8+（脚本只用标准库，无需 pip 安装）。不装 Python 也能用，只是失去「自动核对官方规则更新」这一步。
 
 ## 使用
 
