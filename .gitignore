@@ -1,0 +1,10 @@
+# 运行时状态，不参与版本管理
+references/.rules-meta.json
+
+# Python
+__pycache__/
+*.py[cod]
+
+# 系统
+.DS_Store
+Thumbs.db
